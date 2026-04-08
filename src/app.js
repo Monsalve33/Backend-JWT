@@ -8,10 +8,14 @@ import publicacionRoutes from './routes/Publicacion.routes.js';
 const app = express();
 
 const allowedOrigins = [
-    process.env.CORS_ORIGIN,
+    ...(process.env.CORS_ORIGIN || '')
+        .split(',')
+        .map((origin) => origin.trim())
+        .filter(Boolean),
     'http://localhost:5173',
-    'http://localhost:5174'
-].filter(Boolean);
+    'http://localhost:5174',
+    'https://gestion-monetaria.vercel.app'
+];
 
 const corsOptions = {
     origin: (origin, callback) => {
