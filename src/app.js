@@ -14,7 +14,7 @@ const allowedOrigins = [
         .filter(Boolean),
     'http://localhost:5173',
     'http://localhost:5174',
-    'https://gestion-monetaria.vercel.app'
+    'https://gestion-ingresos-vert.vercel.app'
 ];
 
 const corsOptions = {
